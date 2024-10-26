@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Loan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='script.css') }}">
+</head>
+<body>
+    <h1>Add Loan Details for Customer</h1>
+    <form action="{{ url_for('add_loan', customer_id=customer_id) }}" method="POST">
+        <label for="item_description">Item Description:</label>
+        <input type="text" id="item_description" name="item_description" required><br>
+
+        <label for="loan_amount">Loan Amount:</label>
+        <input type="number" id="loan_amount" name="loan_amount" required><br>
+
+        <label for="reason_for_loan">Reason for Loan:</label>
+        <input type="text" id="reason_for_loan" name="reason_for_loan" required><br>
+
+        <label for="date_of_loan_taken">Date of Loan Taken:</label>
+        <input type="date" id="date_of_loan_taken" name="date_of_loan_taken" required><br>
+
+        <button type="submit">Add Loan</button>
+    </form>
+    <a href="{{ url_for('view_customer', customer_id=customer_id) }}">Back to Customer Details</a>
+</body>
+</html>

@@ -6,25 +6,28 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='script.css') }}">
 </head>
 <body>
-    <h1>Customer: {{ customer.name }}</h1>
-    <h2>Pending Collateral Items</h2>
-    <ul>
-        {% for item in pending_items %}
-            <li>{{ item.item_description }} - Loan Amount: {{ item.loan_amount }} - Interest Rate: {{ item.interest_rate }}%
-                <form action="{{ url_for('settle_collateral', collateral_id=item.id) }}" method="POST">
-                    <button type="submit">Settle</button>
-                </form>
-            </li>
-        {% endfor %}
-    </ul>
+<h1>Customer: {{ customer.name }}</h1>
+<h2><a href="{{ url_for('add_loan', customer_id=customer.customer_id) }}">Add Loan Details</a>
+</h2>
+<h2>Pending Collateral Items</h2>
+<ul>
+    {% for item in pending_items %}
+    <li>{{ item.item_description }} - Loan Amount: {{ item.loan_amount }} - Interest Rate: {{ item.interest_rate }}%
+        <form action="{{ url_for('settle_collateral', collateral_id=item.id) }}" method="POST">
+            <button type="submit">Settle</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
 
-    <h2>Settled Collateral Items</h2>
-    <ul>
-        {% for item in settled_items %}
-            <li>{{ item.item_description }} - Loan Amount: {{ item.loan_amount }} - Interest Rate: {{ item.interest_rate }}%</li>
-        {% endfor %}
-    </ul>
+<h2>Settled Collateral Items</h2>
+<ul>
+    {% for item in settled_items %}
+    <li>{{ item.item_description }} - Loan Amount: {{ item.loan_amount }} - Interest Rate: {{ item.interest_rate }}%
+    </li>
+    {% endfor %}
+</ul>
 
-    <a href="{{ url_for('index') }}">Back to Home</a>
+<a href="{{ url_for('index') }}">Back to Home</a>
 </body>
 </html>
