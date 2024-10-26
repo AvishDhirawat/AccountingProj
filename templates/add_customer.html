@@ -4,31 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Customer</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_customer_style.css') }}">
 </head>
 <body>
-    <h2>Add Customer</h2>
-    <form action="{{ url_for('add_customer') }}" method="POST">
-        <label for="customer_id">Customer ID:</label>
-        <input type="text" id="customer_id" name="customer_id" required>
+    <div class="container">
+        <h2>Add Customer</h2>
+        <form action="{{ url_for('add_customer') }}" method="POST" class="customer-form">
+            <div class="form-group">
+                <label for="customer_id">Customer ID:</label>
+                <input type="text" id="customer_id" name="customer_id" required placeholder="Auto-generated" readonly>
+            </div>
 
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required>
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required>
+            </div>
 
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div>
 
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city">
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
 
-        <label for="mobile_number">Mobile Number:</label>
-        <input type="text" id="mobile_number" name="mobile_number">
+            <div class="form-group">
+                <label for="mobile_number">Mobile Number:</label>
+                <input type="tel" id="mobile_number" name="mobile_number" required pattern="[0-9]{10}" placeholder="10-digit number">
+            </div>
 
-        <label for="notes">Additional Notes:</label>
-        <textarea id="notes" name="notes"></textarea>
+            <div class="form-group">
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Optional"></textarea>
+            </div>
 
-        <button type="submit">Add Customer</button>
-    </form>
-    <a href="{{ url_for('index') }}">Back to Home</a>
+            <button type="submit" class="submit-button">Add Customer</button>
+        </form>
+        <a href="{{ url_for('index') }}" class="back-link">Back to Home</a>
+    </div>
 </body>
 </html>

@@ -2,32 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Customer Details</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='script.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>View Customer</title>
 </head>
 <body>
-<h1>Customer: {{ customer.name }}</h1>
-<h2><a href="{{ url_for('add_loan', customer_id=customer.customer_id) }}">Add Loan Details</a>
-</h2>
-<h2>Pending Collateral Items</h2>
-<ul>
-    {% for item in pending_items %}
-    <li>{{ item.item_description }} - Loan Amount: {{ item.loan_amount }} - Interest Rate: {{ item.interest_rate }}%
-        <form action="{{ url_for('settle_collateral', collateral_id=item.id) }}" method="POST">
-            <button type="submit">Settle</button>
-        </form>
-    </li>
-    {% endfor %}
-</ul>
-
-<h2>Settled Collateral Items</h2>
-<ul>
-    {% for item in settled_items %}
-    <li>{{ item.item_description }} - Loan Amount: {{ item.loan_amount }} - Interest Rate: {{ item.interest_rate }}%
-    </li>
-    {% endfor %}
-</ul>
-
-<a href="{{ url_for('index') }}">Back to Home</a>
+<div class="container">
+    <h1>Customer Details for {{ customer.first_name }} {{ customer.last_name }}</h1>
+    <h2>Pending Loans</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Item Description</th>
+            <th>Loan Amount</th>
+            <th>Reason for Loan</th>
+            <th>Date of Loan Taken</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in pending_items %}
+        <tr>
+            <td>{{ item.item_description }}</td>
+            <td>{{ item.loan_amount }}</td>
+            <td>{{ item.reason_for_loan }}</td>
+            <td>{{ item.date_of_loan_taken.strftime('%Y-%m-%d') }}</td>
+            <td>
+                <form method="POST"
+                      action="{{ url_for('settle_collateral', customer_id=customer.customer_id, loan_id=item.id) }}">
+                    <button type="submit">Settle</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h2>Settled Loans</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Item Description</th>
+            <th>Loan Amount</th>
+            <th>Reason for Loan</th>
+            <th>Date of Loan Taken</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in settled_items %}
+        <tr>
+            <td>{{ item.item_description }}</td>
+            <td>{{ item.loan_amount }}</td>
+            <td>{{ item.reason_for_loan }}</td>
+            <td>{{ item.date_of_loan_taken.strftime('%Y-%m-%d') }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('add_loan', customer_id=customer.customer_id) }}">Add New Loan</a>
+</div>
 </body>
 </html>
