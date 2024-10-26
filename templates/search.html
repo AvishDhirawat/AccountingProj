@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Customer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Search Customer</h2>
+    <form action="{{ url_for('search') }}" method="POST">
+        <label for="search_query">Enter Name, City, Mobile, etc.:</label>
+        <input type="text" id="search_query" name="search_query" required>
+        <button type="submit">Search</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

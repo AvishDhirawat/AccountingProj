@@ -1,0 +1,16 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Tracking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>Loan Tracking & Management System</h1>
+<nav>
+    <a href="{{ url_for('add_customer') }}">Add New Customer</a>
+    <a href="{{ url_for('search') }}">Search Customer</a>
+</nav>
+</body>
+</html>
