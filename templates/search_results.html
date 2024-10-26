@@ -18,7 +18,7 @@
                     <strong>City:</strong> {{ customer.city }}<br>
                     <strong>Mobile:</strong> {{ customer.mobile_number }}<br>
                     <strong>Notes:</strong> {{ customer.notes }}<br>
-                    <a href="{{ url_for('view_customer', customer_id=customer.id) }}">View Details</a>
+                    <a href="{{ url_for('view_customer', customer_id=customer.customer_id) }}">View Details</a>
                 </li>
             {% endfor %}
         </ul>

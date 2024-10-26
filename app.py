@@ -21,14 +21,14 @@ class Customer(db.Model):
 
 
 class Collateral(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    customer_id = db.Column(db.String(100), db.ForeignKey('customer.customer_id'), primary_key=True)
+    loan_id = db.Column(db.Integer, primary_key=True)  # Unique loan ID for each customer
     item_description = db.Column(db.String(200), nullable=False)
     loan_amount = db.Column(db.Float, nullable=False)
-    reason_for_loan = db.Column(db.String(200), nullable=False)  # New field
-    date_of_loan_taken = db.Column(db.DateTime, nullable=False)  # New field
-    interest_rate = db.Column(db.Float, default=2.5)  # Monthly interest rate
-    payment_status = db.Column(db.String(20), default='Pending')  # Pending or Settled
-    customer_id = db.Column(db.Integer, db.ForeignKey('customer.customer_id'), nullable=False)
+    reason_for_loan = db.Column(db.String(200), nullable=False)
+    date_of_loan_taken = db.Column(db.DateTime, nullable=False)
+    interest_rate = db.Column(db.Float, default=2.5)
+    payment_status = db.Column(db.String(20), default='Pending')
 
 
 # Routes
@@ -109,15 +109,11 @@ def search():
         return render_template('search_results.html', results=results, search_query=search_query)
     return render_template('search.html')
 
-@app.route('/reset_db')
-def reset_db():
-    db.drop_all()  # Drops all tables
-    db.create_all()  # Creates new tables
-    return "Database has been reset."
-
 
 @app.route('/add_loan/<int:customer_id>', methods=['POST', 'GET'])
 def add_loan(customer_id):
+    customer = Customer.query.get_or_404(customer_id)  # Fetch the customer
+    full_name = f"{customer.first_name} {customer.last_name}"
     if request.method == 'POST':
         item_description = request.form['item_description']
         loan_amount = float(request.form['loan_amount'])
@@ -128,13 +124,18 @@ def add_loan(customer_id):
         months_elapsed = (datetime.utcnow() - date_of_loan_taken).days // 30
         interest = loan_amount * (2.5 / 100) * months_elapsed
 
+        # Get the maximum loan number for the customer and increment it
+        last_loan = Collateral.query.filter_by(customer_id=customer_id).order_by(Collateral.loan_id.desc()).first()
+        loan_id = last_loan.loan_id + 1 if last_loan else 1  # Start from 1 if no loans exist
+
         new_collateral = Collateral(
+            customer_id=customer_id,
+            loan_id=loan_id,  # Ensure this is loan_id, not loan_number
             item_description=item_description,
             loan_amount=loan_amount,
             reason_for_loan=reason_for_loan,
             date_of_loan_taken=date_of_loan_taken,
-            interest_rate=interest,  # Store the total interest amount
-            owner=Customer.query.get_or_404(customer_id)
+            interest_rate=interest
         )
 
         try:
@@ -146,6 +147,27 @@ def add_loan(customer_id):
             return "There was an issue adding the loan details."
     else:
         return render_template('add_loan.html', customer_id=customer_id)
+
+
+@app.route('/settle_collateral/<int:customer_id>/<int:loan_id>', methods=['POST'])
+def settle_collateral(customer_id, loan_id):
+    # Logic to settle the collateral
+    collateral = Collateral.query.filter_by(customer_id=customer_id, loan_id=loan_id).first_or_404()
+    collateral.payment_status = 'Settled'
+
+    try:
+        db.session.commit()
+        return redirect(url_for('view_customer', customer_id=customer_id))
+    except Exception as e:
+        print(f"Error: {e}")
+        return "There was an issue settling the collateral."
+
+
+@app.route('/reset_db')
+def reset_db():
+    db.drop_all()  # Drops all tables
+    db.create_all()  # Creates new tables
+    return "Database has been reset."
 
 
 # Ensure tables are created within application context
