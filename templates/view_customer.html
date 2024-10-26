@@ -29,7 +29,7 @@
             <td>{{ item.date_of_loan_taken.strftime('%Y-%m-%d') }}</td>
             <td>
                 <form method="POST"
-                      action="{{ url_for('settle_collateral', customer_id=customer.customer_id, loan_id=item.id) }}">
+                      action="{{ url_for('settle_collateral', customer_id=customer.customer_id, loan_id=item.loan_id) }}">
                     <button type="submit">Settle</button>
                 </form>
             </td>

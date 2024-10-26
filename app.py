@@ -67,11 +67,11 @@ def add_customer():
         return render_template('add_customer.html')
 
 
-@app.route('/view_customer/<int:customer_id>')
+@app.route('/view_customer/<customer_id>')
 def view_customer(customer_id):
     customer = Customer.query.get_or_404(customer_id)
-    pending_items = Collateral.query.filter_by(owner=customer, payment_status='Pending').all()
-    settled_items = Collateral.query.filter_by(owner=customer, payment_status='Settled').all()
+    pending_items = Collateral.query.filter_by(customer_id=customer_id, payment_status='Pending').all()
+    settled_items = Collateral.query.filter_by(customer_id=customer_id, payment_status='Settled').all()
     return render_template('view_customer.html', customer=customer, pending_items=pending_items,
                            settled_items=settled_items)
 
