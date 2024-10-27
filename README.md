@@ -63,15 +63,14 @@ AccountingProj/
 │       ├── App.js
 │       └── index.js
 ```
-Installation and Setup
-Backend Setup
-Clone the repository:
+## Initialization and Setup
 
-bash
+### Backend Setup
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd AccountingProj
 
-Copy
-git clone <repository-url>
-cd AccountingProj
 Create and activate a virtual environment:
 
 bash
