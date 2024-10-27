@@ -10,8 +10,8 @@ import AddCustomerForm from './components/AddCustomerForm';
 import AddCollateralForm from './components/AddCollateralForm';
 import About from './components/About';
 import Footer from './components/Footer';
-import './App.css';
-import './components/styles/About.css';
+import ViewCustomer from './components/ViewCustomer';
+import './components/styles/global.css';
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
           <Route path="/add-customer" element={<AddCustomerForm />} />
           <Route path="/add-collateral/:customerId" element={<AddCollateralForm />} />
           <Route path="/search-customer" element={<CustomerList />} />
+          <Route path="/view-customer/:customerId" element={<ViewCustomer />} />
           <Route path="/about" element={<About />} />
         </Routes>
         <Footer />

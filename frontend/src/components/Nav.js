@@ -1,14 +1,15 @@
 // src/components/Nav.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from './styles/Nav.module.css';
 
 function Nav() {
   return (
-    <nav>
-      <Link to="/add-customer" className="nav-link">Add New Customer</Link>
-      <Link to="/search-customer" className="nav-link">Search Customer</Link>
-      <Link to="/" className="nav-link">Dashboard</Link>
-      <Link to="/about" className="nav-link">About</Link>
+    <nav className={styles.nav}>
+      <Link to="/add-customer" className={styles.navLink}>Add New Customer</Link>
+      <Link to="/search-customer" className={styles.navLink}>Search Customer</Link>
+      <Link to="/" className={styles.navLink}>Dashboard</Link>
+      <Link to="/about" className={styles.navLink}>About</Link>
     </nav>
   );
 }

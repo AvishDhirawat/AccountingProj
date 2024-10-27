@@ -1,0 +1,25 @@
+/* src/components/style/Features.module.css */
+.features {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.feature {
+  flex: 1;
+  background-color: #e3f2fd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.feature h3 {
+  color: #1565c0;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  color: #666;
+}

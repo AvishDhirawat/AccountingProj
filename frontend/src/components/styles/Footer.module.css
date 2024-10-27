@@ -1,0 +1,25 @@
+/* src/components/style/Footer.module.css */
+.footer {
+  text-align: center;
+  background-color: #1e88e5;
+  color: white;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer a {
+  color: #e3f2fd;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #0d47a1;
+  transition: background-color 0.3s ease;
+}
+
+.footer a:hover {
+  background-color: #1565c0;
+}

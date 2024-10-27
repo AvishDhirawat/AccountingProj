@@ -1,0 +1,10 @@
+/* src/components/style/Overview.module.css */
+.overview {
+  text-align: center;
+  padding: 20px;
+}
+
+.overview h2 {
+  color: #1e88e5;
+  margin-bottom: 20px;
+}

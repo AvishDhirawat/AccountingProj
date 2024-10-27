@@ -1,6 +1,6 @@
 // src/components/AddCustomerForm.js
 import React, { useState } from 'react';
-import './styles/Form.css';
+import styles from './styles/AddCustomerForm.module.css';
 
 function AddCustomerForm() {
   const [customer, setCustomer] = useState({
@@ -36,35 +36,35 @@ function AddCustomerForm() {
   };
 
   return (
-    <div className="container">
-      <div className="card">
+    <div className={styles.container}>
+      <div className={styles.card}>
         <h2>Add Customer</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="customer_id">Customer ID:</label>
           <input type="text" id="customer_id" name="customer_id" required value={customer.customer_id} onChange={handleChange} />
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="first_name">First Name:</label>
             <input type="text" id="first_name" name="first_name" required value={customer.first_name} onChange={handleChange} />
           </div>
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="last_name">Last Name:</label>
             <input type="text" id="last_name" name="last_name" required value={customer.last_name} onChange={handleChange} />
           </div>
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="city">City:</label>
             <input type="text" id="city" name="city" required value={customer.city} onChange={handleChange} />
           </div>
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="mobile_number">Mobile Number:</label>
             <input type="tel" id="mobile_number" name="mobile_number" required pattern="[0-9]{10}" placeholder="10-digit number" value={customer.mobile_number} onChange={handleChange} />
           </div>
-          <div className="form-group">
+          <div className={styles.formGroup}>
             <label htmlFor="notes">Additional Notes:</label>
             <textarea id="notes" name="notes" rows="4" placeholder="Optional" value={customer.notes} onChange={handleChange}></textarea>
           </div>
-          <button type="submit" className="submit-button">Add Customer</button>
+          <button type="submit" className={styles.submitButton}>Add Customer</button>
         </form>
-        <a href="/" className="back-link">Back to Home</a>
+        <a href="/" className={styles.backLink}>Back to Home</a>
       </div>
     </div>
   );

@@ -1,0 +1,66 @@
+/* src/components/style/AddCustomerForm.module.css */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #1e88e5;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+button.submitButton {
+  background-color: #1e88e5;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.submitButton:hover {
+  background-color: #1565c0;
+}
+
+.backLink {
+  display: inline-block;
+  margin-top: 10px;
+  color: #1e88e5;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}

@@ -1,6 +1,6 @@
 // src/components/Header.js
 import React from 'react';
-import styles from './style/Header.module.css';
+import styles from './styles/Header.module.css';
 
 function Header() {
   return (

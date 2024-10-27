@@ -1,9 +1,10 @@
 // src/components/Overview.js
 import React from 'react';
+import styles from './styles/Overview.module.css';
 
 function Overview() {
   return (
-    <section id="overview">
+    <section id="overview" className={`${styles.overview} fade-in`}>
       <h2>Overview</h2>
       <p>
         Welcome to the Loan Tracking & Management System, designed to streamline the process of managing

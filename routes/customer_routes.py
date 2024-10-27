@@ -30,7 +30,7 @@ def add_customer():
         return jsonify({"message": "Customer added successfully"}), 201
     except Exception as e:
         print(f"Error: {e}")
-        return jsonify({"error": "There was an issue adding the customer."}),
+        return jsonify({"error": "There was an issue adding the customer."}), 500
 
 
 @customer_bp.route('/view_customer/<int:customer_id>')
