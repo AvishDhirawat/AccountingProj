@@ -4,27 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search_results_style.css') }}">
 </head>
 <body>
+<div class="container">
     <h2>Search Results for "{{ search_query }}"</h2>
+
     {% if results %}
-        <ul>
-            {% for customer in results %}
-                <li>
-                    <strong>Customer ID:</strong> {{ customer.customer_id }}<br>
-                    <strong>First Name:</strong> {{ customer.first_name }}<br>
-                    <strong>Last Name:</strong> {{ customer.last_name }}<br>
-                    <strong>City:</strong> {{ customer.city }}<br>
-                    <strong>Mobile:</strong> {{ customer.mobile_number }}<br>
-                    <strong>Notes:</strong> {{ customer.notes }}<br>
-                    <a href="{{ url_for('view_customer', customer_id=customer.customer_id) }}">View Details</a>
-                </li>
-            {% endfor %}
-        </ul>
+    <ul>
+        {% for customer in results %}
+        <li>
+            <strong>Customer ID:</strong> {{ customer.customer_id }}<br>
+            <strong>First Name:</strong> {{ customer.first_name }}<br>
+            <strong>Last Name:</strong> {{ customer.last_name }}<br>
+            <strong>City:</strong> {{ customer.city }}<br>
+            <strong>Mobile:</strong> {{ customer.mobile_number }}<br>
+            <strong>Notes:</strong> {{ customer.notes }}<br>
+            <a href="{{ url_for('customer_bp.view_customer', customer_id=customer.customer_id) }}">View Details</a>
+        </li>
+        {% endfor %}
+    </ul>
     {% else %}
-        <p>No customers found.</p>
+    <p>No customers found.</p>
     {% endif %}
-    <a href="{{ url_for('index') }}">Back to Home</a>
+
+    <div class="button-container">
+        <a href="{{ url_for('customer_bp.search') }}" class="button-link">Back to Search Page</a>
+        <a href="{{ url_for('other_bp.index') }}" class="button-link">Back to Home</a>
+    </div>
+</div>
 </body>
 </html>

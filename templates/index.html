@@ -1,16 +1,52 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loan Tracking System</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index_style.css') }}">
 </head>
 <body>
-<h1>Loan Tracking & Management System</h1>
-<nav>
-    <a href="{{ url_for('add_customer') }}">Add New Customer</a>
-    <a href="{{ url_for('search') }}">Search Customer</a>
-</nav>
+    <header>
+        <h1>Loan Tracking & Management System</h1>
+        <p class="tagline">Efficiently track, manage, and analyze loans with ease.</p>
+    </header>
+
+    <nav>
+        <a href="{{ url_for('customer_bp.add_customer') }}" class="nav-link">Add New Customer</a>
+        <a href="{{ url_for('customer_bp.search') }}" class="nav-link">Search Customer</a>
+        <a href="{{ url_for('other_bp.index') }}" class="nav-link">Dashboard</a>
+        <a href="{{ url_for('other_bp.about') }}" class="nav-link">About</a>
+    </nav>
+
+    <main>
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>
+                Welcome to the Loan Tracking & Management System, designed to streamline the process of managing
+                customer loans with jewelry as collateral. Track loan details, view pending payments, and maintain
+                organized customer records all in one place.
+            </p>
+            <div class="features">
+                <div class="feature">
+                    <h3>Customer Management</h3>
+                    <p>Quickly add, view, and search customer information with detailed loan history.</p>
+                </div>
+                <div class="feature">
+                    <h3>Loan Tracking</h3>
+                    <p>Monitor active loans, settled accounts, and view collateral details securely.</p>
+                </div>
+                <div class="feature">
+                    <h3>Intuitive Dashboard</h3>
+                    <p>Get a snapshot of key metrics and manage your operations efficiently.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Loan Tracking System. All Rights Reserved.</p>
+        <a href="#top" class="back-to-top">Back to Top</a>
+    </footer>
 </body>
 </html>

@@ -8,14 +8,24 @@
 </head>
 <body>
 <div class="container">
+    {% if error %}
+    <p class="error-message">{{ error }}</p>
+    <a href="{{ url_for('other_bp.index') }}" class="back-to-home-button">Back to Home</a>
+    <a href="{{ url_for('customer_bp.search') }}" class="back-to-search-button">Back to Customer Search</a>
+    {% else %}
+    <a href="{{ url_for('other_bp.index') }}" class="back-to-home-button">Back to Home</a>
     <h1>Customer Details for {{ customer.first_name }} {{ customer.last_name }}</h1>
+    <p>Customer ID: {{ customer.customer_id }}</p>
+    <p>Name: {{ customer.first_name }} {{ customer.last_name }}</p>
+    <p>City: {{ customer.city }}</p>
+    <p>Mobile Number: {{ customer.mobile_number }}</p>
+    <p>Notes: {{ customer.notes }}</p>
+
     <h2>Pending Loans</h2>
     <table>
         <thead>
         <tr>
             <th>Item Description</th>
-            <th>Loan Amount</th>
-            <th>Reason for Loan</th>
             <th>Date of Loan Taken</th>
             <th>Action</th>
         </tr>
@@ -24,12 +34,10 @@
         {% for item in pending_items %}
         <tr>
             <td>{{ item.item_description }}</td>
-            <td>{{ item.loan_amount }}</td>
-            <td>{{ item.reason_for_loan }}</td>
             <td>{{ item.date_of_loan_taken.strftime('%Y-%m-%d') }}</td>
             <td>
                 <form method="POST"
-                      action="{{ url_for('settle_collateral', customer_id=customer.customer_id, loan_id=item.loan_id) }}">
+                      action="{{ url_for('loan_bp.settle_collateral', customer_id=customer.customer_id, loan_id=item.loan_id) }}">
                     <button type="submit">Settle</button>
                 </form>
             </td>
@@ -37,13 +45,12 @@
         {% endfor %}
         </tbody>
     </table>
+
     <h2>Settled Loans</h2>
     <table>
         <thead>
         <tr>
             <th>Item Description</th>
-            <th>Loan Amount</th>
-            <th>Reason for Loan</th>
             <th>Date of Loan Taken</th>
         </tr>
         </thead>
@@ -51,14 +58,13 @@
         {% for item in settled_items %}
         <tr>
             <td>{{ item.item_description }}</td>
-            <td>{{ item.loan_amount }}</td>
-            <td>{{ item.reason_for_loan }}</td>
             <td>{{ item.date_of_loan_taken.strftime('%Y-%m-%d') }}</td>
         </tr>
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ url_for('add_loan', customer_id=customer.customer_id) }}">Add New Loan</a>
+    <a href="{{ url_for('loan_bp.add_loan', customer_id=customer.customer_id) }}">Add New Loan</a>
+    {% endif %}
 </div>
 </body>
 </html>
