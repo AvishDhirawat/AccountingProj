@@ -1,4 +1,3 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +8,8 @@
 <body>
 <h1>Loan Tracking & Management System</h1>
 <nav>
-    <a href="{{ url_for('add_customer') }}">Add New Customer</a>
-    <a href="{{ url_for('search') }}">Search Customer</a>
+    <a href="{{ url_for('customer_bp.add_customer') }}">Add New Customer</a>
+    <a href="{{ url_for('customer_bp.search') }}">Search Customer</a>
 </nav>
 </body>
 </html>

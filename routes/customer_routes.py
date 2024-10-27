@@ -28,7 +28,7 @@ def add_customer():
         try:
             db.session.add(new_customer)
             db.session.commit()
-            return redirect(url_for('index'))
+            return redirect(url_for('customer_bp.view_customer', customer_id=customer_id))  # Ensure correct URL
         except Exception as e:
             print(f"Error: {e}")
             return "There was an issue adding the customer."
@@ -36,7 +36,7 @@ def add_customer():
         return render_template('add_customer.html')
 
 
-@customer_bp.route('/view_customer/<customer_id>')
+@customer_bp.route('/view_customer/<int:customer_id>')
 def view_customer(customer_id):
     customer = Customer.query.get_or_404(customer_id)
     pending_items = Collateral.query.filter_by(customer_id=customer_id, payment_status='Pending').all()
@@ -53,7 +53,7 @@ def search():
         if search_query.isdigit():  # Check if it's all digits
             customer = Customer.query.filter_by(customer_id=search_query).first()
             if customer:
-                return redirect(url_for('view_customer', customer_id=customer.customer_id))
+                return redirect(url_for('customer_bp.view_customer', customer_id=customer.customer_id))
             else:
                 return "Customer not found with that ID."
         elif len(names) == 1:

@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from models.collateral import Collateral
 from extensions import db
+from models.customer import Customer
 from datetime import datetime
 
 loan_bp = Blueprint('loan_bp', __name__)
@@ -8,11 +9,9 @@ loan_bp = Blueprint('loan_bp', __name__)
 
 @loan_bp.route('/add_loan/<int:customer_id>', methods=['POST', 'GET'])
 def add_loan(customer_id):
-    from models.collateral import Collateral  # Delay import
-    from models.customer import Customer  # Delay import
-    from app import db  # Delay impor
     customer = Customer.query.get_or_404(customer_id)  # Fetch the customer
     full_name = f"{customer.first_name} {customer.last_name}"
+
     if request.method == 'POST':
         item_description = request.form['item_description']
         loan_amount = float(request.form['loan_amount'])
@@ -40,7 +39,7 @@ def add_loan(customer_id):
         try:
             db.session.add(new_collateral)
             db.session.commit()
-            return redirect(url_for('view_customer', customer_id=customer_id))
+            return redirect(url_for('customer_bp.view_customer', customer_id=customer_id))  # Corrected URL
         except Exception as e:
             print(f"Error: {e}")
             return "There was an issue adding the loan details."
@@ -55,7 +54,7 @@ def settle_collateral(customer_id, loan_id):
 
     try:
         db.session.commit()
-        return redirect(url_for('view_customer', customer_id=customer_id))
+        return redirect(url_for('customer_bp.view_customer', customer_id=customer_id))  # Corrected URL
     except Exception as e:
         print(f"Error: {e}")
         return "There was an issue settling the collateral."

@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, abort
-from app import db
+from extensions import db
 
 other_bp = Blueprint('other_bp', __name__)
 
