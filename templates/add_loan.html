@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Add Loan Details for {{ full_name }}</h1>
-        <form method="POST" action="{{ url_for('add_loan', customer_id=customer_id) }}">
+        <form method="POST" action="{{ url_for('loan_bp.add_loan', customer_id=customer_id) }}">
             <div class="form-group">
                 <label for="item_description">Item Description:</label>
                 <input type="text" id="item_description" name="item_description" required>
@@ -28,7 +28,7 @@
             </div>
             <button type="submit">Add Loan</button>
         </form>
-        <a href="{{ url_for('view_customer', customer_id=customer_id) }}">Back to Customer Details</a>
+        <a href="{{ url_for('customer_bp.view_customer', customer_id=customer_id) }}">Back to Customer Details</a>
     </div>
 </body>
 </html>

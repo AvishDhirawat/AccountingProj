@@ -55,7 +55,7 @@ def search():
             if customer:
                 return redirect(url_for('customer_bp.view_customer', customer_id=customer.customer_id))
             else:
-                return "Customer not found with that ID."
+                return render_template('view_customer.html', error="Customer not found with that ID.")
         elif len(names) == 1:
             # If one name is given, search both first and last name
             results = Customer.query.filter(
