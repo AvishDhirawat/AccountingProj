@@ -71,52 +71,52 @@ AccountingProj/
    git clone <repository-url>
    cd AccountingProj
 
-Create and activate a virtual environment:
+2. **Create and Activate a Virtual Environment**:
 
-bash
-
-Copy
+```bash
 python -m venv venv
 venv\Scripts\activate  # On Windows
-Install the required packages:
+```
+3. **Install the required packages**:
 
-bash
+```bash
 
-Copy
 pip install -r requirements.txt
-Run the Flask app:
+```
+4. **Run the Flask app**:
 
-bash
+```bash
 
-Copy
+
 set FLASK_APP=app.py  # On Windows
 set FLASK_ENV=development
 flask run
-Frontend Setup
-Navigate to the frontend directory:
+```
+###Frontend Setup
+1. **Navigate to the frontend directory**:
 
-bash
+```bash
 
-Copy
 cd frontend
-Install the dependencies:
+```
+##Install the dependencies:
 
-bash
+```bash
 
-Copy
 npm install
-Start the React development server:
+```
+##Start the React development server:
 
-bash
+```bash
 
-Copy
 npm start
-Usage
-Open your browser and go to http://localhost:3000 to access the frontend.
+```
+###Usage
+Open your browser and go to ```http://localhost:3000``` to access the frontend.
 
 Use the navigation menu to add new customers, search customers, and view customer details.
 
-The backend should be running at http://127.0.0.1:5000.
+The backend should be running at ```http://127.0.0.1:5000.```
 
 Development
 This project is currently in progress. Upcoming features include:
