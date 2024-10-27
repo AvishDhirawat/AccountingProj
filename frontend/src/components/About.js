@@ -53,10 +53,6 @@ function About() {
           <p><strong>Email:</strong> <a href="mailto:dhirawatvikas@gmail.com">dhirawatvikas@gmail.com</a></p>
         </section>
       </main>
-      <footer>
-        <p>&copy; 2024 Loan Tracking System. All Rights Reserved.</p>
-        <a href="#top" className="back-to-top">Back to Top</a>
-      </footer>
     </div>
   );
 }

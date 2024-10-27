@@ -11,7 +11,7 @@ import AddCollateralForm from './components/AddCollateralForm';
 import About from './components/About';
 import Footer from './components/Footer';
 import './App.css';
-import './components/About.css';
+import './components/styles/About.css';
 
 function App() {
   return (

@@ -1,5 +1,6 @@
 // src/components/AddCustomerForm.js
 import React, { useState } from 'react';
+import './styles/Form.css';
 
 function AddCustomerForm() {
   const [customer, setCustomer] = useState({
