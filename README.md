@@ -73,44 +73,44 @@ AccountingProj/
 
 2. **Create and Activate a Virtual Environment**:
 
-```bash
-python -m venv venv
-venv\Scripts\activate  # On Windows
-```
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate  # On Windows
+
 3. **Install the required packages**:
 
-```bash
+   ```bash
 
-pip install -r requirements.txt
-```
+   pip install -r requirements.txt
+
 4. **Run the Flask app**:
 
-```bash
+   ```bash
 
 
-set FLASK_APP=app.py  # On Windows
-set FLASK_ENV=development
-flask run
-```
+   set FLASK_APP=app.py  # On Windows
+   set FLASK_ENV=development
+   flask run
+
 ###Frontend Setup
 1. **Navigate to the frontend directory**:
 
-```bash
+   ```bash
+   
+   cd frontend
 
-cd frontend
-```
-##Install the dependencies:
+2. **Install the dependencies**:
 
-```bash
+   ```bash
+   
+   npm install
 
-npm install
-```
-##Start the React development server:
+3. **Start the React development server**:
 
-```bash
+   ```bash
+   
+   npm start
 
-npm start
-```
 ###Usage
 Open your browser and go to ```http://localhost:3000``` to access the frontend.
 
@@ -118,7 +118,7 @@ Use the navigation menu to add new customers, search customers, and view custome
 
 The backend should be running at ```http://127.0.0.1:5000.```
 
-Development
+###Development
 This project is currently in progress. Upcoming features include:
 
 Advanced loan filtering and sorting
