@@ -62,3 +62,88 @@ AccountingProj/
 │       │       └── global.css
 │       ├── App.js
 │       └── index.js
+```
+Installation and Setup
+Backend Setup
+Clone the repository:
+
+bash
+
+Copy
+git clone <repository-url>
+cd AccountingProj
+Create and activate a virtual environment:
+
+bash
+
+Copy
+python -m venv venv
+venv\Scripts\activate  # On Windows
+Install the required packages:
+
+bash
+
+Copy
+pip install -r requirements.txt
+Run the Flask app:
+
+bash
+
+Copy
+set FLASK_APP=app.py  # On Windows
+set FLASK_ENV=development
+flask run
+Frontend Setup
+Navigate to the frontend directory:
+
+bash
+
+Copy
+cd frontend
+Install the dependencies:
+
+bash
+
+Copy
+npm install
+Start the React development server:
+
+bash
+
+Copy
+npm start
+Usage
+Open your browser and go to http://localhost:3000 to access the frontend.
+
+Use the navigation menu to add new customers, search customers, and view customer details.
+
+The backend should be running at http://127.0.0.1:5000.
+
+Development
+This project is currently in progress. Upcoming features include:
+
+Advanced loan filtering and sorting
+
+Notification system for due payments
+
+Enhanced dashboard metrics
+
+Contributions
+Contributions are welcome! Please fork this repository and create a pull request for any feature additions or bug fixes.
+
+License
+This project is licensed under the MIT License.
+
+Contact
+For any questions or feedback, feel free to reach out to the developer:
+
+Name: Avish Dhirawat
+
+Role: Java Backend Developer
+
+GitHub: avishdhirawat
+
+LinkedIn: linkedin.com/in/avishdhirawat
+
+
+
