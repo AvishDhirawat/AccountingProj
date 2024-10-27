@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, abort
+from flask import Blueprint, render_template, abort, jsonify
 from extensions import db
 
 other_bp = Blueprint('other_bp', __name__)
@@ -14,10 +14,11 @@ def reset_db():
     try:
         db.drop_all()
         db.create_all()
-        return "Database has been reset."
+        return jsonify({"message": "Database has been reset."}), 200
     except Exception as e:
         print(f"Error resetting database: {e}")
-        return "An error occurred while resetting the database.", 500  # Return a 500 error code
+        return jsonify({"error": "An error occurred while resetting the database."}), 500
+
 
 
 @other_bp.route('/about')

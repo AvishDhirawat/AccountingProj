@@ -1,0 +1,64 @@
+// src/components/About.js
+import React from 'react';
+
+function About() {
+  return (
+    <div>
+      <header>
+        <h1>About Us</h1>
+        <p className="tagline">Learn more about the Loan Tracking & Management System and its developer.</p>
+      </header>
+      <main>
+        <a href="/" className="back-to-home-button">Back to Home</a>
+        <section id="mission">
+          <h2>Our Mission</h2>
+          <p>
+            Our mission is to provide a streamlined, user-friendly loan tracking and management solution
+            that simplifies the process for both customers and administrators. We strive to enhance
+            financial transparency and efficiency within the jewelry loan sector.
+          </p>
+        </section>
+        <section id="developer">
+          <h2>About the Developer</h2>
+          <p>
+            <strong>Name:</strong> Avish Dhirawat<br />
+            <strong>Role:</strong> Java Backend Developer<br />
+            <strong>Experience:</strong> Over 3 years in backend technologies including Java, Spring Boot, and
+            MySQL.<br />
+            <strong>GitHub:</strong> <a href="https://github.com/avishdhirawat" target="_blank" rel="noopener noreferrer">github.com/avishdhirawat</a><br />
+            <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/avishdhirawat" target="_blank" rel="noopener noreferrer">linkedin.com/in/avishdhirawat</a>
+          </p>
+          <p>
+            I am passionate about developing efficient and scalable backend solutions. With expertise
+            in RESTful API creation, Microservices architecture, and database management, I aim to
+            leverage technology to create impactful applications that address real-world challenges.
+          </p>
+        </section>
+        <section id="technologies">
+          <h2>Technologies Used</h2>
+          <p>This web application is developed using the following languages and technologies:</p>
+          <ul>
+            <li>Python</li>
+            <li>Flask</li>
+            <li>HTML/CSS</li>
+            <li>JavaScript</li>
+            <li>MySQL</li>
+            <li>Docker</li>
+            <li>Git</li>
+          </ul>
+        </section>
+        <section id="contact">
+          <h2>Contact Us</h2>
+          <p>If you have any questions or feedback regarding the Loan Tracking System, feel free to reach out!</p>
+          <p><strong>Email:</strong> <a href="mailto:dhirawatvikas@gmail.com">dhirawatvikas@gmail.com</a></p>
+        </section>
+      </main>
+      <footer>
+        <p>&copy; 2024 Loan Tracking System. All Rights Reserved.</p>
+        <a href="#top" className="back-to-top">Back to Top</a>
+      </footer>
+    </div>
+  );
+}
+
+export default About;
