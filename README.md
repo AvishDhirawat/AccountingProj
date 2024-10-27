@@ -132,14 +132,14 @@ Contributions are welcome! Please fork this repository and create a pull request
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the `Paras Cloth Store` License.
 
 ## Contact
 
 For any questions or feedback, feel free to reach out to the developer:
 
 - **Name**: Avish Dhirawat
-- **Role**: Java Backend Developer
+- **Role**: Full Stack Developer
 - **GitHub**: `avishdhirawat`
 - **LinkedIn**: `linkedin.com/in/avishdhirawat`
 
