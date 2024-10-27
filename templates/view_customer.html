@@ -14,8 +14,6 @@
         <thead>
         <tr>
             <th>Item Description</th>
-            <th>Loan Amount</th>
-            <th>Reason for Loan</th>
             <th>Date of Loan Taken</th>
             <th>Action</th>
         </tr>
@@ -24,8 +22,6 @@
         {% for item in pending_items %}
         <tr>
             <td>{{ item.item_description }}</td>
-            <td>{{ item.loan_amount }}</td>
-            <td>{{ item.reason_for_loan }}</td>
             <td>{{ item.date_of_loan_taken.strftime('%Y-%m-%d') }}</td>
             <td>
                 <form method="POST"
@@ -42,8 +38,6 @@
         <thead>
         <tr>
             <th>Item Description</th>
-            <th>Loan Amount</th>
-            <th>Reason for Loan</th>
             <th>Date of Loan Taken</th>
         </tr>
         </thead>
@@ -51,8 +45,6 @@
         {% for item in settled_items %}
         <tr>
             <td>{{ item.item_description }}</td>
-            <td>{{ item.loan_amount }}</td>
-            <td>{{ item.reason_for_loan }}</td>
             <td>{{ item.date_of_loan_taken.strftime('%Y-%m-%d') }}</td>
         </tr>
         {% endfor %}
