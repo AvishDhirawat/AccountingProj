@@ -92,57 +92,56 @@ AccountingProj/
    set FLASK_ENV=development
    flask run
 
-###Frontend Setup
-1. **Navigate to the frontend directory**:
+## Frontend Setup
 
-   ```bash
-   
-   cd frontend
+### Navigate to the Frontend Directory:
 
-2. **Install the dependencies**:
+    ```bash
+    cd frontend
+    ```
 
-   ```bash
-   
-   npm install
+### Install the Dependencies:
 
-3. **Start the React development server**:
+    ```bash
+    npm install
+    ```
 
-   ```bash
-   
-   npm start
+### Start the React Development Server:
 
-###Usage
-Open your browser and go to ```http://localhost:3000``` to access the frontend.
+    ```bash
+    npm start
+    ```
 
-Use the navigation menu to add new customers, search customers, and view customer details.
+## Usage
 
-The backend should be running at ```http://127.0.0.1:5000.```
+- Open your browser and go to `http://localhost:3000` to access the frontend.
+- Use the navigation menu to add new customers, search customers, and view customer details.
+- Ensure the backend is running at `http://127.0.0.1:5000`.
 
-###Development
+## Development
+
 This project is currently in progress. Upcoming features include:
 
-Advanced loan filtering and sorting
+- Advanced loan filtering and sorting
+- Notification system for due payments
+- Enhanced dashboard metrics
 
-Notification system for due payments
+## Contributions
 
-Enhanced dashboard metrics
-
-Contributions
 Contributions are welcome! Please fork this repository and create a pull request for any feature additions or bug fixes.
 
-License
+## License
+
 This project is licensed under the MIT License.
 
-Contact
+## Contact
+
 For any questions or feedback, feel free to reach out to the developer:
 
-Name: Avish Dhirawat
-
-Role: Java Backend Developer
-
-GitHub: avishdhirawat
-
-LinkedIn: linkedin.com/in/avishdhirawat
+- **Name**: Avish Dhirawat
+- **Role**: Java Backend Developer
+- **GitHub**: `avishdhirawat`
+- **LinkedIn**: `linkedin.com/in/avishdhirawat`
 
 
 
