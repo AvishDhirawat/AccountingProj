@@ -6,7 +6,9 @@
     "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "latest"
+    "react-scripts": "latest",
+    "react-router-dom": "^6.27.0",
+    "react-router": "^6.27.0"
   },
   "scripts": {
     "start": "react-scripts start --openssl-legacy-provider",

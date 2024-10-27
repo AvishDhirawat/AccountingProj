@@ -21,10 +21,10 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<><Overview /><Features /></>} />
-          <Route path="/add-customer" element={<AddCustomerForm />} />
-          <Route path="/add-collateral/:customerId" element={<AddCollateralForm />} />
-          <Route path="/search-customer" element={<CustomerList />} />
-          <Route path="/view-customer/:customerId" element={<ViewCustomer />} />
+          <Route path="/customers/add_customer" element={<AddCustomerForm />} />
+          <Route path="/add_collateral/:customerId" element={<AddCollateralForm />} />
+          <Route path="/customers/search" element={<CustomerList />} />
+          <Route path="/view_customer/:customerId" element={<ViewCustomer />} />
           <Route path="/about" element={<About />} />
         </Routes>
         <Footer />
