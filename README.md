@@ -92,21 +92,21 @@ AccountingProj/
    set FLASK_ENV=development
    flask run
 
-## Frontend Setup
+### Frontend Setup
 
-### Navigate to the Frontend Directory:
+1. **Navigate to the Frontend Directory**:
 
     ```bash
     cd frontend
     ```
 
-### Install the Dependencies:
+2. **Install the Dependencies**:
 
     ```bash
     npm install
     ```
 
-### Start the React Development Server:
+3. **Start the React Development Server**:
 
     ```bash
     npm start
